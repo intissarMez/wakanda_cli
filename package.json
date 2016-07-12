@@ -1,0 +1,24 @@
+{
+  "name": "wakanda-cli",
+  "version": "1.0.0",
+  "description": "A command line interface to generate a new Wakanda application.",
+  "bin": {
+    "wakanda": "./bin/wakanda"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "Wakanda",
+    "CLI",
+    "Command Line Interface"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intissarMez/wakanda_cli.git"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "ncp": "^2.0.0"
+  }
+}

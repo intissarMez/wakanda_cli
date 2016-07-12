@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+'use strict';
+
+process.title = 'wakanda-cli';
+
+const program = require('commander'),
+      pkg = require('../package.json'),
+      act = require("../lib/actions");
+
+program
+  .version(pkg.version)
+  .usage("<command> [options]");
+
+  program
+    .command("new <name>")
+    .description("Generate a folder structure for building wakanda apps.")
+    .option('-W, --workspace', 'create workspace instead of a project.')
+    .action(act.generateWakandaStructure);
+
+  program
+    .command("generate <name>")
+    .description("Generate different wakanda boilerplate.")
+    .option('-b, --backend','Generate a preconfigured backend.')
+    .option('-d, --database','Generate a model.')
+    .option('-m, --mobile','Generate mobile folder.')
+    .option('-w, --web','Generate web folder.')
+    .action(act.generateWakandaBoilerplate);
+
+
+  /* if command is not recognized, show help.*/
+  program.on('*', function() {
+    program.help();
+  });
+
+  //TODO: Add custom help
+  /*
+  program.on('--help', function(){
+    console.log('  Examples:');
+    console.log('');
+  });*/
+
+  program.parse(process.argv);
+
+  /* if no command is passed, show help.*/
+  if (!process.argv.slice(2).length) {
+    program.help();
+  }
