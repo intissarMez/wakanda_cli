@@ -13,15 +13,13 @@ program
 
   program
     .command("new <name>")
-    .description("Generate a folder structure for building wakanda apps.")
+    .description("Generate a folder structure for wakanda apps.")
     .option('-W, --workspace', 'create workspace instead of a project.')
     .action(act.generateWakandaStructure);
 
   program
     .command("generate <name>")
     .description("Generate different wakanda boilerplate.")
-    .option('-b, --backend','Generate a preconfigured backend.')
-    .option('-d, --database','Generate a model.')
     .option('-m, --mobile','Generate mobile folder.')
     .option('-w, --web','Generate web folder.')
     .action(act.generateWakandaBoilerplate);
@@ -33,14 +31,15 @@ program
   });
 
   //TODO: Add custom help
-  /*
+
   program.on('--help', function(){
     console.log('  Examples:');
-    console.log('');
-  });*/
+    console.log('    $ new -W myWorkspace');
+    console.log('    $ new  myProject');
+  });
 
-  program.parse(process.argv);
 
+program.parse(process.argv);
   /* if no command is passed, show help.*/
   if (!process.argv.slice(2).length) {
     program.help();
