@@ -14,8 +14,12 @@ program
   program
     .command("new <name>")
     .description("Generate a folder structure for wakanda apps.")
-    .option('-W, --workspace', 'create workspace instead of a project.')
-    .action(act.generateWakandaStructure);
+    .action(act.initializeFolder);
+
+  program
+    .command("add <name>")
+    .description("Add new project to current workspace")
+    .action(act.addProject);
 
   program
     .command("generate <name>")
@@ -31,12 +35,11 @@ program
   });
 
   //TODO: Add custom help
-
+  /*
   program.on('--help', function(){
     console.log('  Examples:');
-    console.log('    $ new -W myWorkspace');
     console.log('    $ new  myProject');
-  });
+  });*/
 
 
 program.parse(process.argv);
