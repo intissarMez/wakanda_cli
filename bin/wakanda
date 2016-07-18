@@ -5,7 +5,7 @@ process.title = 'wakanda-cli';
 
 const program = require('commander'),
       pkg = require('../package.json'),
-      act = require("../lib/actions");
+      act = require("../lib/action");
 
 program
   .version(pkg.version)
